@@ -1,0 +1,107 @@
+/* Twin Tales — Spot the Difference. Warm paper-and-ink theme, fixed 1280x480 stage. */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  background: #241d16 radial-gradient(1200px 500px at 50% -10%, #3a2d20, #241d16);
+  font-family: "Trebuchet MS", "Segoe UI", Verdana, sans-serif;
+  color: #f3e9d2;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+#stage {
+  position: relative;
+  width: 1280px; height: 480px;
+  background: linear-gradient(180deg, #2e2620, #241d16);
+  border: 1px solid #57452f;
+  border-radius: 14px;
+  box-shadow: 0 18px 50px rgba(0,0,0,.55);
+  padding: 10px 14px 8px;
+  user-select: none;
+}
+#hud {
+  display: flex; align-items: center; gap: 16px;
+  height: 52px; padding: 0 4px;
+}
+.brand { display: flex; flex-direction: column; line-height: 1.05; min-width: 168px; }
+.logo {
+  font-size: 26px; font-weight: 800; letter-spacing: .5px; color: #ffd166;
+  text-shadow: 0 2px 0 rgba(0,0,0,.35);
+}
+.sub { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #c9a86a; }
+.level-tabs { display: flex; gap: 8px; }
+.tab {
+  border: 1px solid #6b5636; background: #33291d; color: #e8d9b0;
+  border-radius: 999px; padding: 7px 13px; font-size: 13px; cursor: pointer;
+  font-family: inherit; font-weight: 700;
+}
+.tab:hover { border-color: #ffd166; }
+.tab.active { background: #ffd166; color: #2b2115; border-color: #ffd166; }
+.tab.done { border-color: #7fb069; color: #a8d08d; }
+.tab.done::after { content: " ✓"; }
+.stats { margin-left: auto; display: flex; gap: 8px; align-items: center; }
+.pill {
+  background: #171208; border: 1px solid #57452f; border-radius: 999px;
+  padding: 7px 12px; font-size: 13px; font-weight: 700; color: #f3e9d2;
+  white-space: nowrap;
+}
+.pill.hot { border-color: #ffd166; color: #ffd166; }
+.btn {
+  border: 1px solid #ffd166; background: #ffd166; color: #2b2115;
+  border-radius: 999px; padding: 7px 13px; font-size: 13px; font-weight: 800;
+  cursor: pointer; font-family: inherit;
+}
+.btn:hover { filter: brightness(1.08); }
+.btn:disabled { opacity: .45; cursor: default; }
+.btn.ghost { background: transparent; color: #ffd166; }
+
+#boards { display: flex; gap: 12px; margin-top: 6px; justify-content: center; }
+.panel {
+  position: relative; flex: 0 0 600px;
+  border: 2px solid #57452f; border-radius: 10px; overflow: hidden;
+  background: #87b5d6; cursor: crosshair;
+}
+.panel.wrong { animation: shake .3s; border-color: #e4572e; }
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+.panel-tag {
+  position: absolute; top: 8px; left: 10px; z-index: 3;
+  background: rgba(23,18,8,.78); color: #ffe9a8;
+  font-size: 12px; font-weight: 800; letter-spacing: 1px;
+  padding: 4px 10px; border-radius: 999px; pointer-events: none;
+}
+canvas { display: block; width: 596px; height: 360px; }
+#foot {
+  display: flex; justify-content: space-between; align-items: center;
+  height: 30px; padding: 0 4px; font-size: 12.5px; color: #cbb98d;
+}
+.keys { color: #9c8a68; }
+
+.overlay {
+  position: absolute; inset: 0; z-index: 10;
+  display: none; align-items: center; justify-content: center;
+  background: rgba(20,14,8,.72); border-radius: 14px;
+  backdrop-filter: blur(2px);
+}
+.overlay.show { display: flex; }
+.card {
+  width: 560px; max-height: 430px; overflow: auto;
+  background: #fbf3dd; color: #2b2115; border-radius: 16px;
+  padding: 26px 30px; text-align: center;
+  box-shadow: 0 24px 60px rgba(0,0,0,.6);
+  border: 3px solid #ffd166;
+}
+.card h1 { font-size: 34px; color: #7a4a12; margin-bottom: 4px; }
+.card h2 { font-size: 24px; color: #7a4a12; margin-bottom: 6px; }
+.card p { font-size: 15px; line-height: 1.55; margin: 8px 0; color: #4a3a26; }
+.card .big { font-size: 44px; letter-spacing: 4px; margin: 6px 0; }
+.card .row { display: flex; gap: 10px; justify-content: center; margin-top: 16px; flex-wrap: wrap; }
+.card .btn { font-size: 15px; padding: 10px 20px; }
+.card .btn.ghost { border-color: #7a4a12; color: #7a4a12; }
+.howto { text-align: left; margin: 10px auto 0; max-width: 440px; font-size: 14.5px; line-height: 1.6; }
+.howto b { color: #7a4a12; }
+.stars { font-size: 40px; color: #e8a100; letter-spacing: 6px; margin: 4px 0; }
+.score-line { font-size: 19px; font-weight: 800; color: #2b2115; }
+.dim { color: #8a7550; font-size: 13.5px; }

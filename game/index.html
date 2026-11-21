@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Twin Tales — Spot the Difference</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="stage">
+  <header id="hud">
+    <div class="brand">
+      <span class="logo">Twin Tales</span>
+      <span class="sub">spot the difference</span>
+    </div>
+    <div class="level-tabs" id="levelTabs"></div>
+    <div class="stats">
+      <span id="counter" class="pill">Found 0 of 7 &middot; 7 remaining</span>
+      <span id="timer" class="pill">00:00</span>
+      <span id="score" class="pill">Score 0</span>
+      <button id="hintBtn" class="btn" title="Hint (H)">Hint</button>
+      <button id="muteBtn" class="btn" title="Mute (M)">Sound: on</button>
+    </div>
+  </header>
+
+  <main id="boards">
+    <section class="panel" id="panelA">
+      <div class="panel-tag">Picture A</div>
+      <canvas id="canvasA" width="596" height="360"></canvas>
+    </section>
+    <section class="panel" id="panelB">
+      <div class="panel-tag">Picture B &middot; 7 changes hide here</div>
+      <canvas id="canvasB" width="596" height="360"></canvas>
+    </section>
+  </main>
+
+  <footer id="foot">
+    <span>Click a difference on either picture &middot; wrong clicks cost 25 points</span>
+    <span class="keys">H hint &nbsp;&middot;&nbsp; R restart level &nbsp;&middot;&nbsp; 1/2/3 levels &nbsp;&middot;&nbsp; M mute</span>
+  </footer>
+
+  <div id="overlay" class="overlay">
+    <div class="card" id="overlayCard"></div>
+  </div>
+</div>
+<script src="audio.js"></script>
+<script src="scenes.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
